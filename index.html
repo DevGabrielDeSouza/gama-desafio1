@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Promoção imperdível</title>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
@@ -18,9 +20,16 @@
 			<div id="content">
 				<form id="form" action="#">
 					<input type="text" placeholder="name" id="nome">
-					<input type="text" placeholder="email" id="email">
+					<div id="email-field">
+						<input type="text" placeholder="email" id="email" onkeyup="validation()">
+						<div id="icons">
+							<span class="bx bx-x" id="error-icon"></span>
+							<span class="bx bx-check" id="validation-icon"></span>
+						</div>
+					</div>
 					<span id="text"></span>
-					<input type="submit" value="Cadastrar">
+					<div class="error-container"><div class="error-text" id ="error-text">Por favor, insira um e-mail válido.</div></div>
+					<input type="submit" value="Cadastrar" id="submit-button">
 				</form>
 			</div>
 		</div>

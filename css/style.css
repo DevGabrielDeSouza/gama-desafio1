@@ -36,6 +36,15 @@ html {
 }
 
 input{
+	height: 30px;
+	margin-bottom: 10px;
+	text-align: center;
+	border-radius: 12px;
+	background: #000;
+	color: #fff
+}
+
+#nome{
 	width: 100%;
 	height: 30px;
 	margin-bottom: 10px;
@@ -60,7 +69,7 @@ footer{
 input{
 	outline: none;
 	border: none;
-	
+	width: 300px;
 }
 
 #text{
@@ -68,4 +77,77 @@ input{
 	color: #000;
 	font-weight: 300;
 	font-style: 5px;
+}
+
+#email-field{
+	width: 100%;
+	display: flex;
+	position: relative;
+}
+
+#email{
+	width: 100%;
+}
+
+#icons{
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-75%);
+}
+
+#validation-icon, #error-icon{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border: 2px dashed #f69c55;
+
+	border: 2px solid;
+	border-color: #fff;
+	border-radius: 50%;
+	display: none;
+}
+
+#error-icon{
+	color: red;
+	border-color: red;
+}
+
+#validation-icon{
+	color: greenyellow;
+	border-color: greenyellow;
+}
+
+.error-text{
+	position: relative;
+	margin: 0px 0 8px 0;
+	background: red;
+	padding: 8px;
+	border-radius: 5px;
+	z-index: 0;
+	display: none;
+	text-align: center;
+}
+
+.error-text:before{
+	position: absolute;
+	z-index: -1;
+	content: "";
+	margin: 0px 0 8px 0;
+	background: red;
+	padding: 8px;
+	border-radius: 5px;
+
+	width: 15px;
+	height: 15px;
+	
+	right: 20px;
+	top: -7px;
+
+	transform: rotate(45deg);
+}
+
+#submit-button{
+	display: none;
 }

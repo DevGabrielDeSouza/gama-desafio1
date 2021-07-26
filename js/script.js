@@ -1,4 +1,9 @@
-const form = document.getElementById('form')
+const form = document.getElementById('form');
+const emailField = document.getElementById("email");
+const errorIcon = document.getElementById("error-icon");
+const validationIcon = document.getElementById("validation-icon");
+const errorText = document.getElementById("error-text");
+const submitButton = document.getElementById("submit-button");
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -13,7 +18,7 @@ form.addEventListener('submit', (e) => {
 		addEmail(newData);
 	}
 
-})
+});
 
 function addEmail(newData){
 
@@ -77,16 +82,23 @@ function clearData(){
 }
 
 function validation(){
-	let form = document.getElementById("form");
-	let email = document.getElementById("email").value;
+	let email = emailField.value;
 
-	let text =document.getElementById("text");
 	let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
 	if (email.match(pattern)) {
+		emailField.style.borderColor = "#00ff00";
+		validationIcon.style.display = "block";
+		errorText.style.display = "none";
+		errorIcon.style.display = "none";
+		submitButton.style.display = "block";
 		return true;
 	} else {
-		feedbackMessage("Por favor, insira um e-mail válido.", "#ff0000");
+		emailField.style.borderColor = "#ff0000";
+		errorText.style.display = "block";
+		validationIcon.style.display = "none";
+		errorIcon.style.display = "block";
+		submitButton.style.display = "none";
 	}
 
 	return false;
