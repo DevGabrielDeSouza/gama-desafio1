@@ -4,26 +4,53 @@ form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	let nome = document.getElementById('nome').value;
 	let email = document.getElementById('email').value;
-	let data = {
+	let newData = {
 		nome,
 		email,
 	}
-	let convertData = JSON.stringify(data);
 
-	localStorage.setItem('lead', convertData)
+	emailList = [];
 
-	let content = document.getElementById('content')
+	let oldData;
 
-	let carregando = `<p>carregando...</p>`
+	oldData = JSON.parse(localStorage.getItem("lead"));
 
-	let pronto = `<p>pronto</p>`
+	console.log(oldData);
+	let findings = oldData.find(match => {return match.email == newData.email;});
 
-	content.innerHTML = carregando
+	console.log(findings);
+
+	if (findings != undefined){
+		console.log("JÁ CADASTRADO!!");
+		return;
+	}
+	
+	
+	let completeData = [...oldData, newData];
+
+	
+
+	localStorage.setItem('lead', JSON.stringify(completeData));
+
+	let content = document.getElementById('content');
+
+	let carregando = `<p>carregando...</p>`;
+
+	let pronto = `<p>pronto</p>`;
+
+	content.innerHTML = carregando;
+
+
+
+
+	let final = JSON.parse(localStorage.getItem("lead"));
+
+	console.log(final);
 
 
 	setTimeout(() => {
 		content.innerHTML = pronto
-	}, 1000)
+	}, 1000);
 
 })
 
@@ -39,3 +66,8 @@ function allStorage() {
 
 	return values;
 }
+
+function clearData(){
+	localStorage.setItem('lead', "[]");
+}
+
