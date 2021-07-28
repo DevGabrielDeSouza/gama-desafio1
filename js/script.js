@@ -32,7 +32,7 @@ function addEmail(newData){
 
 	if (findings != undefined) {
 		console.log("JÁ CADASTRADO!!");
-		feedbackMessage("Email já cadastrado!", "#ff0000");
+		feedbackMessage("Email já cadastrado!", "#FF1744");
 		return;
 	}
 
@@ -60,7 +60,7 @@ function addEmail(newData){
 
 	setTimeout(() => {
 		content.innerHTML = pronto;
-		content.style.color = "#00ff00";
+		content.style.color = "#00E676";
 	}, 1000);
 }
 
@@ -87,14 +87,14 @@ function validation(){
 	let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
 	if (email.match(pattern)) {
-		emailField.style.borderColor = "#00ff00";
+		emailField.style.borderColor = "#00E676";
 		validationIcon.style.display = "block";
 		errorText.style.display = "none";
 		errorIcon.style.display = "none";
 		submitButton.style.display = "block";
 		return true;
 	} else {
-		emailField.style.borderColor = "#ff0000";
+		emailField.style.borderColor = "#FF1744";
 		errorText.style.display = "block";
 		validationIcon.style.display = "none";
 		errorIcon.style.display = "block";

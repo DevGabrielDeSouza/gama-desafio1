@@ -13,15 +13,18 @@
 
 <body>
 	<section class="section-container background-section-one">
-		<img src="assets/logo.png" alt="Logotipo">
+		<img src="assets/logo.png" alt="Logotipo" id="logo">
 	</section>
 	<section class="section-container background-section-two">
 		<div class="card-container">
+			<h1>Cadastre-se e receba ofertas exclusivas!</h1>
 			<div id="content">
 				<form id="form" action="#">
-					<input type="text" placeholder="name" id="nome">
-					<div id="email-field">
-						<input type="text" placeholder="email" id="email" onkeyup="validation()">
+					<div id="input-field">
+						<input type="text" placeholder="Nome" id="nome">
+					</div>
+					<div id="input-field">
+						<input type="text" placeholder="E-mail" id="email" onkeyup="validation()">
 						<div id="icons">
 							<span class="bx bx-x" id="error-icon"></span>
 							<span class="bx bx-check" id="validation-icon"></span>
