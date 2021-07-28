@@ -20,6 +20,22 @@ h1{
 	color: white;
 }
 
+#loading-text{
+	color: white;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#loading-img{
+	width: 5%;
+}
+
+#content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 #logo{
 	max-width: min(80vw, 80vh);
 }
@@ -74,6 +90,7 @@ input{
 }
 
 form{
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -165,6 +182,7 @@ footer{
 
 #submit-button {
 	display: none;
+	margin-top: 10px;
 
 	text-align: center;
 	padding: 0;

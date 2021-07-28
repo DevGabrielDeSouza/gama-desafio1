@@ -4,6 +4,7 @@ const errorIcon = document.getElementById("error-icon");
 const validationIcon = document.getElementById("validation-icon");
 const errorText = document.getElementById("error-text");
 const submitButton = document.getElementById("submit-button");
+const titleCard = document.getElementsByTagName("h1");
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -24,27 +25,29 @@ function addEmail(newData){
 
 	emailList = [];
 
-	let oldData;
+	let oldData = JSON.parse(localStorage.getItem("lead"));
 
-	oldData = JSON.parse(localStorage.getItem("lead"));
+	let completeData;
 
-	let findings = oldData.find(match => { return match.email == newData.email; });
+	if(oldData != null){
+		let findings = oldData.find(match => { return match.email == newData.email; });
 
-	if (findings != undefined) {
-		console.log("JÁ CADASTRADO!!");
-		feedbackMessage("Email já cadastrado!", "#FF1744");
-		return;
+		if (findings != undefined) {
+			console.log("JÁ CADASTRADO!!");
+			feedbackMessage("Email já cadastrado!", "#FF1744");
+			return;
+		}
+
+		completeData = [...oldData, newData];
 	}
-
-	let completeData = [...oldData, newData];
-
-
+	
+	completeData = [newData];
 
 	localStorage.setItem('lead', JSON.stringify(completeData));
 
 	let content = document.getElementById('content');
 
-	let carregando = `<p>carregando...</p>`;
+	let carregando = `<img id="loading-img" src="assets/loader.gif" alt="Logotipo" id="logo"><p id="loading-text">Carregando...</p>`;
 
 	let pronto = `<p>Email cadastrado com sucesso!</p>`;
 
@@ -60,8 +63,10 @@ function addEmail(newData){
 
 	setTimeout(() => {
 		content.innerHTML = pronto;
+		content.style.textAlign = "center";
+		document.getElementById("title").innerHTML = "Pronto! Entraremos em contato logo!"
 		content.style.color = "#00E676";
-	}, 1000);
+	}, 2000);
 }
 
 function allStorage() {
