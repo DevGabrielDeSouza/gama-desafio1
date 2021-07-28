@@ -110,4 +110,5 @@ function feedbackMessage(message, color){
 	text.innerHTML = "";
 	text.innerHTML = message;
 	text.style.color = color;
+	text.style.marginBottom = "10px";
 }
