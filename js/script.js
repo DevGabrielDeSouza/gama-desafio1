@@ -78,7 +78,8 @@ function allStorage() {
 }
 
 function clearData(){
-	localStorage.setItem('lead', "[]");
+	//localStorage.setItem('lead', "[]");
+	localStorage.removeItem('lead');
 }
 
 function validation(){
